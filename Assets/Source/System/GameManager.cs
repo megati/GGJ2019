@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// ゲーム管理
@@ -24,12 +25,19 @@ public class GameManager : MonoBehaviour
     {
         //演出中なら処理しない
         if (isPerformance) return;
+        gameTime -= 1.0f * Time.deltaTime;
     }
 
     /// <summary>
     /// ゲームの時間を返す
     /// </summary>
-    public float GetGameTime() { return gameTime; }
+    public int GetGameTime() { return (int)gameTime; }
+
+    public int GetGameTimeMinute() { return (int)gameTime / 60; }
+
+    public int GetGameTimeSecond() { return (int)gameTime % 60; }
+
+
 
     /// <summary>
     /// 演出中かどうか返す
