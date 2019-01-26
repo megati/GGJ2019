@@ -70,6 +70,7 @@ MonoBehaviour:
     type: 3}
   explosion: {fileID: 5890072750287947968}
   buildingTop: {fileID: 5391066860390929104}
+  buildingBase: {fileID: 4443456274963073563}
 --- !u!1 &7674612571655543649
 GameObject:
   m_ObjectHideFlags: 0

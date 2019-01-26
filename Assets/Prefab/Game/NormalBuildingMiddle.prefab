@@ -171,6 +171,7 @@ MonoBehaviour:
     type: 3}
   explosion: {fileID: 2633824606721819338}
   buildingTop: {fileID: 1648512910490254377}
+  buildingBase: {fileID: 2132737717162609321}
 --- !u!1001 &460687096224660275
 PrefabInstance:
   m_ObjectHideFlags: 0

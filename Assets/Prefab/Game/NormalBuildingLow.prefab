@@ -70,6 +70,7 @@ MonoBehaviour:
     type: 3}
   explosion: {fileID: 5170481768035296816}
   buildingTop: {fileID: 9183173048531736806}
+  buildingBase: {fileID: 8139870808770449926}
 --- !u!54 &447964460468300670
 Rigidbody:
   m_ObjectHideFlags: 0

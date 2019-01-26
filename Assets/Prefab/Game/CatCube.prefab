@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a1423b9ab02aa4aa62b865a7854fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSpeed: 25
+  firstSpeed: 30
   rigidBody: {fileID: 5639255161167560545}
   hitJoints: []
 --- !u!1 &8873288658428613309
