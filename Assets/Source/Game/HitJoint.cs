@@ -25,8 +25,11 @@ public class HitJoint : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        hitObject = collision.gameObject;
-        isHit = true;
+        if (collision.gameObject.GetComponent<BillHitToCat>() != null)
+        {
+            hitObject = collision.gameObject;
+            isHit = true;
+        }
     }
 
 }

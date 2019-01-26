@@ -85,6 +85,9 @@ public class Cannon : MonoBehaviour
                 //オブジェクトを生成
                 if (bulletObject != null)
                 {
+                    Vector3 lockPosition = this.transform.position + (lengthAngle.transform.forward * 3);
+                    lockPosition.y = this.transform.position.y;
+                    Quaternion rotate = Quaternion.LookRotation( lockPosition );
                     BulletBase bullet = Instantiate(bulletObject, gameObject.transform.position, lengthAngle.transform.GetChild(0).rotation) as BulletBase;
                     //bullet.SetQuaternion();
                 }

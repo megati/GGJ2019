@@ -27,6 +27,7 @@ public class NormalBuilding : BuildingBase
         {
             state = State.breaking;
             buildBloken.OnBleak();
+            DeleteHingeJointsChildren();
             //buildBloken = null;
         }
     }

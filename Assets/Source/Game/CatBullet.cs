@@ -30,8 +30,8 @@ public class CatBullet : BulletBase
     
     void Update()
     {
-        Vector3 direction = rigidBody.velocity.normalized;
-        this.transform.rotation = Quaternion.Euler(direction);
+        //Vector3 direction = rigidBody.velocity.normalized;
+        //this.transform.rotation = Quaternion.Euler(direction);
         bool isHit = false;
         GameObject hitObject = null;
         foreach ( var hitJoint in hitJoints )
