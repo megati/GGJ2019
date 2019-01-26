@@ -22,10 +22,7 @@ public class Timer : MonoBehaviour
     //分1桁
     private Image oneSecond;
 
-    void Start()
-    {
-       
-    }
+    void Start(){}
     
     void Update()
     {

@@ -16,34 +16,19 @@ public class BuildingController : MonoBehaviour
     private List<BuildingPoint> pointList;
 
     [SerializeField]
-    //生成データ
-    private List<BuildingData> buildingDataList;
+    //ステージの建物作成データ
+    private List<StageData> stageDataList;
 
     //生成した建物情報リスト
     private List<BuildingBase> createBuildingList=new List<BuildingBase>();
 
-    //ビル生成時の生成データ
-    [System.Serializable]
-    public struct BuildingData
-    {
-        public int number;
-        public ModelType createNumber;
-        public int recoveryBulletNum;
-        public int life;
-    }
-
-    //ビルのタイプ
-    public enum ModelType
-    {
-        NOMAL_HIGH=0,
-        NOMAL_MIDDLE=1,
-        NOMAL_LOW =2
-    };
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var buildingData in buildingDataList)
+        //最初は１番目のステージ
+        foreach (var buildingData in stageDataList[0].GetBuildingDataList())
         {
             Transform point = GetPointTransform(buildingData.number);
             if (point==null) continue;
