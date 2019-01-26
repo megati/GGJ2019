@@ -77,10 +77,22 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GameEnd()
     {
-        if(gameTime == 0f || bulletNum == 0)
+        if (gameTime == 0f)
         {
-            SceneManager.LoadScene("Resalt");
+            Time.timeScale = 0;
+            DontDestroyOnLoad(this);
+            Invoke("ResultMethod", 5.0f);
         }
+        if (bulletNum == 0)
+        {
+            Time.timeScale = 0;
+            DontDestroyOnLoad(this);
+            Invoke("ResultMethod", 5.0f);
+        }
+    }
+    void ResultMethod()
+    {
+        SceneManager.LoadScene("Resalt");
     }
 
     /// <summary>
