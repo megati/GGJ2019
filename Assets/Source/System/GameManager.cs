@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ゲーム管理
@@ -59,4 +60,39 @@ public class GameManager : MonoBehaviour
     /// 演出中かどうか返す
     /// </summary>
     public bool IsPerformance() { return isPerformance; }
+
+    /// <summary>
+    /// タイトルからゲームシーンへ
+    /// </summary>
+    public void GameStart()
+    {
+        Invoke("StartMethod", 2.0f);
+    }
+    void StartMethod()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    /// <summary>
+    /// タイム制限でリザルト画面へ
+    /// </summary>
+    public void GameEnd()
+    {
+        if(gameTime == 0f || bulletNum == 0)
+        {
+            SceneManager.LoadScene("Resalt");
+        }
+    }
+
+    /// <summary>
+    /// タイトルからゲーム終了へ
+    /// </summary>
+    public void QuitGame()
+    {
+        Invoke("QuitMethod", 1.0f);
+    }
+    void QuitMethod()
+    {
+        Application.Quit();
+    }
 }
