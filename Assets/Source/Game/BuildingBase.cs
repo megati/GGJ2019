@@ -36,6 +36,10 @@ public class BuildingBase : MonoBehaviour
         GameManager.GetInstance().RecoveryBulletNum(recoveryBulletNum);
     }
 
+    /// <summary>
+    /// 破壊されているか
+    /// </summary>
+    /// <returns></returns>
     public bool IsBroken()
     {
         if (state == State.broken)
@@ -46,4 +50,8 @@ public class BuildingBase : MonoBehaviour
         return life <= 0;
     }
 
+    /// <summary>
+    /// 回復できる弾の数を返す
+    /// </summary>
+    public int GetRecoveryBulletNum() { return recoveryBulletNum; }
 }
