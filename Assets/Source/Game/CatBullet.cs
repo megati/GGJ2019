@@ -15,8 +15,9 @@ public class CatBullet : BulletBase
     // Start is called before the first frame update
     void Start()
     {
-        //velocitySpeed = this.transform.forward * firstSpeed;
-        velocitySpeed = Vector3.forward * firstSpeed;
+        velocitySpeed = this.transform.forward * firstSpeed;
+        // デバッグ用のやつ
+        //velocitySpeed = Vector3.forward * firstSpeed;
         rigidBody.AddForce( velocitySpeed, ForceMode.Impulse );
         var hits = GetComponentsInChildren<HitJoint>();
         for( int i = 0; i < hits.Length; ++i )
