@@ -34,5 +34,7 @@ public class Timer : MonoBehaviour
         int second = (int)(time % 60);
         tenSecond.sprite = number[second/10];
         oneSecond.sprite = number[second%10];
+        var asd = GameManager.GetInstance();
+        asd.GetBreakBuildingCount();
     }
 }

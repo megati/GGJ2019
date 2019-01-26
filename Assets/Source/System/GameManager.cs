@@ -33,12 +33,6 @@ public class GameManager : MonoBehaviour
         //演出中なら処理しない
         if (isPerformance) return;
         gameTime -= 1.0f * Time.deltaTime;
-        if(gameTime <= 0f)
-        {
-            Time.timeScale = 0;
-            DontDestroyOnLoad(this);
-            Invoke("ResultMethod", 5.0f);
-        }
     }
 
     /// <summary>
@@ -91,20 +85,33 @@ public class GameManager : MonoBehaviour
     {
         if (gameTime <= 0f)
         {
-            Time.timeScale = 0;
-            DontDestroyOnLoad(this);
             Invoke("ResultMethod", 5.0f);
         }
         if (bulletNum == 0)
         {
-            Time.timeScale = 0;
-            DontDestroyOnLoad(this);
             Invoke("ResultMethod", 5.0f);
         }
     }
     void ResultMethod()
     {
-        SceneManager.LoadScene("Resalt");
+        SceneManager.LoadScene("Result");
+    }
+
+    /// <summary>
+    /// リザルト画面からタイトルへ
+    /// </summary>
+    public void BackToTitle()
+    {
+        if (ispush == false)
+        {
+            ispush = true;
+            Invoke("TitleMethod", 0.4f);
+            return;
+        }
+    }
+    void TitleMethod()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 
     /// <summary>
