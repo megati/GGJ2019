@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 建物破壊演出
+/// </summary>
 public class BuildBloken : MonoBehaviour
 {
 
@@ -14,11 +17,18 @@ public class BuildBloken : MonoBehaviour
     [SerializeField]
     private ParticleSystem particle = null;
 
+    [SerializeField]
+    //爆発地点
+    private Transform explosion;
+    [SerializeField]
+    //ビルの一番上
+    private Transform buildingTop;
+
     private Vector3 firstPosition = new Vector3();
     private float animationTime = 0;
     private float buildMoveY = 0;
-    [SerializeField]
-    private float buildSpeedY = 10;
+   
+    const float buildSpeedY = 2;
 
 
     // Start is called before the first frame update
@@ -30,39 +40,39 @@ public class BuildBloken : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            OnBloken();
-        }
-        
-
+        if (Input.GetKeyDown(KeyCode.Z)) OnBloken();
     }
 
-
+    /// <summary>
+    /// 破壊
+    /// </summary>
     private void OnBloken()
     {
         //particle.Play(true);
         StartCoroutine(StartBlokenAnimation());
     }
 
+    /// <summary>
+    /// 落下アニメーション
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator StartBlokenAnimation()
     {
-        
-        particle.Play();
+        GameObject aoki=Instantiate(particle.gameObject, explosion,false) as GameObject;
+        aoki.transform.position -= new Vector3(0,0.5f,0);
+        ParticleSystem particleSystem= aoki.GetComponent<ParticleSystem>();
+        particleSystem.Play();
 
-        while (build.transform.position.y > -5) {
+        while (explosion.transform.position.y < buildingTop.position.y) {
             //build.transform.position = firstPosition + new Vector3(animationCurveX.Evaluate(animationTime), buildMoveY);
             build.transform.position = firstPosition + new Vector3(Mathf.Sin(Mathf.Rad2Deg*animationTime) * 1, buildMoveY);
 
             animationTime += Time.deltaTime;
-            buildMoveY += buildSpeedY * Time.deltaTime;
-            if (animationTime > 1)
-            {
-                animationTime = 0;
-            }
+            buildMoveY -= buildSpeedY * Time.deltaTime;
+            if (animationTime > 1) animationTime = 0;
             yield return null;
         }
-         particle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
         yield return null;
 

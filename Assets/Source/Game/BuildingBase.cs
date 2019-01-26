@@ -11,4 +11,12 @@ public class BuildingBase : MonoBehaviour
     protected int recoveryBulletNum = 0;
     //耐久度
     protected int life=1;
+
+
+    //初期化
+    public void Init(int life, int bulletNum)
+    {
+        this.life = life;
+        this.recoveryBulletNum = bulletNum;
+    }
 }
