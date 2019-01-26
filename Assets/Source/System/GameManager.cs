@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
         //演出中なら処理しない
         if (isPerformance) return;
         gameTime -= 1.0f * Time.deltaTime;
+        if(gameTime <= 0f)
+        {
+            Time.timeScale = 0;
+            DontDestroyOnLoad(this);
+            Invoke("ResultMethod", 5.0f);
+        }
     }
 
     /// <summary>
@@ -63,9 +69,15 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// タイトルからゲームシーンへ
     /// </summary>
+    public bool ispush = false;
     public void GameStart()
     {
-        Invoke("StartMethod", 2.0f);
+        if (ispush == false)
+        {
+            ispush = true;
+            Invoke("StartMethod", 0.4f);
+            return;
+        }
     }
     void StartMethod()
     {
@@ -77,7 +89,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GameEnd()
     {
-        if (gameTime == 0f)
+        if (gameTime <= 0f)
         {
             Time.timeScale = 0;
             DontDestroyOnLoad(this);
@@ -100,7 +112,16 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void QuitGame()
     {
-        Invoke("QuitMethod", 1.0f);
+        if (ispush == false)
+        {
+            ispush = true;
+            Invoke("QuitMethod", 0.4f);
+            return;
+        }
+        else
+        {
+            return;
+        }
     }
     void QuitMethod()
     {
