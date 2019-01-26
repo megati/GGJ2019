@@ -43,7 +43,14 @@ public class BuildingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        bool isAllBroken = true;
+        foreach (var createBuilding in createBuildingList)
+        {
+            if (!createBuilding.IsBroken()) isAllBroken = false;
+        }
+
+        //
+        if (isAllBroken) { }
     }
 
     /// <summary>
