@@ -54,9 +54,9 @@ public class CatBullet : BulletBase
     
     void SetJoint(GameObject hitObjent)
     {
-        Debug.Log("Set Joint" + hitObjent.name);
         foreach (var hitJoint in hitJoints)
         {
+            Debug.Log("Set Joint" + hitObjent.name);
             if (hitObjent.GetComponent<Rigidbody>() != null)
             {
                 var hinge = hitObjent.AddComponent<HingeJoint>();

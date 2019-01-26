@@ -19,10 +19,10 @@ public class BuildBloken : MonoBehaviour
 
     [SerializeField]
     //爆発地点
-    private Transform explosion;
+    private Transform explosion = null;
     [SerializeField]
     //ビルの一番上
-    private Transform buildingTop;
+    private Transform buildingTop = null;
 
     [SerializeField]
     //ビル情報
@@ -33,6 +33,24 @@ public class BuildBloken : MonoBehaviour
     private float buildMoveY = 0;
    
     const float buildSpeedY = 2;
+
+    private bool isDestroy = false;
+    public bool IsDestroy
+    {
+        get
+        {
+            return isDestroy;
+        }
+    }
+
+    private bool isBreakStart = false;
+    public bool IsBreakStart
+    {
+        get
+        {
+            return isBreakStart;
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -50,9 +68,14 @@ public class BuildBloken : MonoBehaviour
     /// <summary>
     /// 破壊
     /// </summary>
-    public void OnBloken()
+    public void OnBleak()
     {
         //particle.Play(true);
+        if (isBreakStart == true)
+        {
+            return;
+        }
+        isBreakStart = true;
         StartCoroutine(StartBlokenAnimation());
     }
 
@@ -82,7 +105,8 @@ public class BuildBloken : MonoBehaviour
         particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         //猫カウント
         buildingBase.plusBulletNum();
-
+        // 死んだということにしておく
+        isDestroy = true;
         yield return null;
 
     }

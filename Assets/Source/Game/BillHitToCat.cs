@@ -28,7 +28,10 @@ public class BillHitToCat : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(""+collision.gameObject.GetComponent<BulletBase>() != null);
-        if ((collision.gameObject.GetComponent<BulletBase>() != null) || (collision.gameObject.GetComponent<HitJoint>() != null) && IsHit == false) {
+        // ねこにはあたらんぜよ
+        //if ((collision.gameObject.GetComponent<BulletBase>() != null) || (collision.gameObject.GetComponent<HitJoint>() != null) && IsHit == false)
+        if ((collision.gameObject.GetComponent<HitJoint>() != null) && IsHit == false)
+        {
             Debug.Log("HIT!!!!!!!");
             hitObjectList.Add(collision.gameObject);
         }
