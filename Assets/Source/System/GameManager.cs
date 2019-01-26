@@ -13,10 +13,13 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance() { return _singleInstance; }
 
     //ゲーム時間
-    float gameTime = 180.0f;
+    private float gameTime = 180.0f;
 
     //演出中か
-    bool isPerformance = false;
+    private bool isPerformance = false;
+
+    //弾の残段数
+    private int bulletNum = 30;
 
     /// <summary>
     /// ゲームの時間をカウントする
@@ -37,7 +40,20 @@ public class GameManager : MonoBehaviour
 
     public int GetGameTimeSecond() { return (int)gameTime % 60; }
 
+    /// <summary>
+    /// 現在の弾の数を返す
+    /// </summary>
+    public int GetBulletNum() { return bulletNum; }
 
+    /// <summary>
+    /// 弾を回復
+    /// </summary>
+    public void RecoveryBulletNum(int recoveryBulletNum){ bulletNum += recoveryBulletNum; }
+
+    /// <summary>
+    /// 弾を減らす
+    /// </summary>
+    public void CutBackBulletNum(){ bulletNum -= 1; }
 
     /// <summary>
     /// 演出中かどうか返す
