@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     //弾の残段数
     private int bulletNum = 30;
 
+    //壊れたビルカウント
+    private int breakBuildingCount = 0;
+
     /// <summary>
     /// ゲームの時間をカウントする
     /// </summary>
@@ -55,4 +58,14 @@ public class GameManager : MonoBehaviour
     /// 演出中かどうか返す
     /// </summary>
     public bool IsPerformance() { return isPerformance; }
+
+    /// <summary>
+    /// 壊れたビルの数を返す
+    /// </summary>
+    public int GetBreakBuildingCount() { return breakBuildingCount; }
+
+    /// <summary>
+    /// 壊れたビルをカウント
+    /// </summary>
+    public void plusBreakBuildingCount() { breakBuildingCount += 1; }
 }

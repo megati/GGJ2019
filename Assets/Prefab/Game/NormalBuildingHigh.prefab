@@ -69,6 +69,7 @@ MonoBehaviour:
     type: 3}
   explosion: {fileID: 5890072750287947968}
   buildingTop: {fileID: 5391066860390929104}
+  buildingBase: {fileID: 4443456274963073563}
 --- !u!1 &7674612571655543649
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,19 +130,6 @@ Transform:
   m_Father: {fileID: 798078956843940094}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2153209881025005040
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918575532463901636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 13.111118, y: 18.929632, z: 13.643257}
-  m_Center: {x: 0, y: 0, z: 0.0000076293945}
 --- !u!54 &316716047630891963
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,6 +146,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &2153209881025005040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918575532463901636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.111118, y: 18.929632, z: 13.643257}
+  m_Center: {x: 0, y: 0, z: 0.0000076293945}
 --- !u!1001 &8918575532463995184
 PrefabInstance:
   m_ObjectHideFlags: 0
