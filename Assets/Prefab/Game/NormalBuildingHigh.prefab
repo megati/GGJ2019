@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798078956843940094}
   - component: {fileID: 4443456274963073563}
+  - component: {fileID: 8593574429096579162}
   m_Layer: 0
   m_Name: NormalBuildingHigh
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3969898918127145516}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6, y: 1.1, z: 6.5490003}
   m_LocalScale: {x: 0.099999994, y: 0.19999999, z: 0.099999994}
   m_Children:
@@ -45,6 +46,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0a23524903d9c42b0c04968848b186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8593574429096579162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969898918127145516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42f546a79d6f704c822e850e1c256c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  build: {fileID: 8918575532463901636}
+  animationCurveX:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  particle: {fileID: 4804046376543612241, guid: f21056cea40f4044484582e9d3c4a5ae,
+    type: 3}
+  explosion: {fileID: 5890072750287947968}
+  buildingTop: {fileID: 5391066860390929104}
 --- !u!1 &7674612571655543649
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8252346471495842246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.2, z: 0}
+  m_LocalPosition: {x: 0, y: -9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 798078956843940094}
@@ -174,7 +198,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 467980, guid: 5268f3eea397dcb40925cb28a6e9ee0f, type: 3}
-      propertyPath: m_LocalScale.z
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 467980, guid: 5268f3eea397dcb40925cb28a6e9ee0f, type: 3}
@@ -182,7 +206,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 467980, guid: 5268f3eea397dcb40925cb28a6e9ee0f, type: 3}
-      propertyPath: m_LocalScale.x
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
