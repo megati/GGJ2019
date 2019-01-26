@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 時間表示
+/// </summary>
 public class Timer : MonoBehaviour
 {
-    public Text _colontext;
-    public Text _minuteText;
-    public Text _secondText;
+    [SerializeField]
+    //数字の画像
+    private List<Sprite> number;
 
+    [SerializeField]
+    //時
+    private Image minutes;
+    [SerializeField]
+    //分10桁
+    private Image tenSecond;
+    [SerializeField]
+    //分1桁
+    private Image oneSecond;
 
     void Start()
     {
@@ -18,15 +30,12 @@ public class Timer : MonoBehaviour
     void Update()
     {
         GameManager.GetInstance().GameTimeCount();
-        GameManager gameManager = GameManager.GetInstance();
 
-        int time = gameManager.GetGameTime();
-        int minuteTime = gameManager.GetGameTimeMinute();
-        int secondTime = gameManager.GetGameTimeSecond();
+        int time = GameManager.GetInstance().GetGameTime();
 
-
-        _minuteText.text = minuteTime.ToString("00") + ":";
-        _secondText.text = secondTime.ToString("00");
-
+        minutes.sprite = number[(int)(time / 60)];
+        int second = (int)(time % 60);
+        tenSecond.sprite = number[second/10];
+        oneSecond.sprite = number[second%10];
     }
 }

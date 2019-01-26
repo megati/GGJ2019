@@ -12,11 +12,18 @@ public class BuildingBase : MonoBehaviour
     //耐久度
     protected int life=1;
 
-
     //初期化
     public void Init(int life, int bulletNum)
     {
         this.life = life;
         this.recoveryBulletNum = bulletNum;
+    }
+
+    /// <summary>
+    /// 弾の数を増やす
+    /// </summary>
+    public void plusBulletNum()
+    {
+        GameManager.GetInstance().RecoveryBulletNum(recoveryBulletNum);
     }
 }

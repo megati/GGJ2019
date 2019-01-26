@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     //弾の残段数
     private int bulletNum = 30;
 
+    //壊れたビルカウント
+    private int breakBuildingCount = 0;
+
     /// <summary>
     /// ゲームの時間をカウントする
     /// </summary>
@@ -36,10 +39,6 @@ public class GameManager : MonoBehaviour
     /// ゲームの時間を返す
     /// </summary>
     public int GetGameTime() { return (int)gameTime; }
-
-    public int GetGameTimeMinute() { return (int)gameTime / 60; }
-
-    public int GetGameTimeSecond() { return (int)gameTime % 60; }
 
     /// <summary>
     /// 現在の弾の数を返す
@@ -95,4 +94,13 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    /// 壊れたビルの数を返す
+    /// </summary>
+    public int GetBreakBuildingCount() { return breakBuildingCount; }
+
+    /// <summary>
+    /// 壊れたビルをカウント
+    /// </summary>
+    public void plusBreakBuildingCount() { breakBuildingCount += 1; }
 }

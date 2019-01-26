@@ -24,6 +24,10 @@ public class BuildBloken : MonoBehaviour
     //ビルの一番上
     private Transform buildingTop;
 
+    [SerializeField]
+    //ビル情報
+    private BuildingBase buildingBase;
+
     private Vector3 firstPosition = new Vector3();
     private float animationTime = 0;
     private float buildMoveY = 0;
@@ -63,6 +67,9 @@ public class BuildBloken : MonoBehaviour
         ParticleSystem particleSystem= aoki.GetComponent<ParticleSystem>();
         particleSystem.Play();
 
+        //ビルの破壊数をカウント
+        GameManager.GetInstance().plusBreakBuildingCount();
+
         while (explosion.transform.position.y < buildingTop.position.y) {
             //build.transform.position = firstPosition + new Vector3(animationCurveX.Evaluate(animationTime), buildMoveY);
             build.transform.position = firstPosition + new Vector3(Mathf.Sin(Mathf.Rad2Deg*animationTime) * 1, buildMoveY);
@@ -73,6 +80,8 @@ public class BuildBloken : MonoBehaviour
             yield return null;
         }
         particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        //猫カウント
+        buildingBase.plusBulletNum();
 
         yield return null;
 
