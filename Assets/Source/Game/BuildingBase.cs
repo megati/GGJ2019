@@ -49,7 +49,14 @@ public class BuildingBase : MonoBehaviour
         Debug.Log("life:" + life);
         return life <= 0;
     }
-
+    public void DeleteHingeJointsChildren()
+    {
+        var hingeJoints = GetComponentsInChildren<HingeJoint>();
+        foreach ( var hingeJoint in hingeJoints)
+        {
+            Destroy(hingeJoint);
+        }
+    }
     /// <summary>
     /// 回復できる弾の数を返す
     /// </summary>
