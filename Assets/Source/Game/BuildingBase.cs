@@ -26,4 +26,11 @@ public class BuildingBase : MonoBehaviour
     {
         GameManager.GetInstance().RecoveryBulletNum(recoveryBulletNum);
     }
+
+    public bool IsBroken()
+    {
+        Debug.Log("life:" + life);
+        return life <= 0;
+    }
+
 }

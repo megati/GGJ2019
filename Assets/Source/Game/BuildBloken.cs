@@ -44,13 +44,13 @@ public class BuildBloken : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z)) OnBloken();
+        //if (Input.GetKeyDown(KeyCode.Z)) OnBloken();
     }
 
     /// <summary>
     /// 破壊
     /// </summary>
-    private void OnBloken()
+    public void OnBloken()
     {
         //particle.Play(true);
         StartCoroutine(StartBlokenAnimation());
