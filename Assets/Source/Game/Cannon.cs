@@ -30,7 +30,7 @@ public class Cannon : MonoBehaviour
     [Header("Object")]
     [SerializeField]
     //弾のオブジェクト
-    private GameObject bulletObject=null;
+    private BulletBase bulletObject=null;
 
     [Header("Angle")]
     [SerializeField]
@@ -83,8 +83,15 @@ public class Cannon : MonoBehaviour
                 reloadTime = coolTime;
                 GameManager.GetInstance().CutBackBulletNum();
                 //オブジェクトを生成
-                if (bulletObject != null) Instantiate(bulletObject, gameObject.transform);
-                else Debug.LogError("No Object Bullet.");
+                if (bulletObject != null)
+                {
+                    BulletBase bullet = Instantiate(bulletObject, gameObject.transform.position, lengthAngle.transform.GetChild(0).rotation) as BulletBase;
+                    //bullet.SetQuaternion();
+                }
+                else
+                {
+                    Debug.LogError("No Object Bullet.");
+                }
             }
         }
     }
