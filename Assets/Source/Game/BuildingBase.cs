@@ -19,4 +19,11 @@ public class BuildingBase : MonoBehaviour
         this.life = life;
         this.recoveryBulletNum = bulletNum;
     }
+
+    public bool IsBroken()
+    {
+        Debug.Log("life:" + life);
+        return life <= 0;
+    }
+
 }

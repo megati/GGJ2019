@@ -54,7 +54,7 @@ public class CatBullet : BulletBase
     
     void SetJoint(GameObject hitObjent)
     {
-        Debug.Log("Set Joint");
+        Debug.Log("Set Joint" + hitObjent.name);
         foreach (var hitJoint in hitJoints)
         {
             if (hitObjent.GetComponent<Rigidbody>() != null)
