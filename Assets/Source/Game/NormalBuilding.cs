@@ -19,12 +19,15 @@ public class NormalBuilding : BuildingBase
     {
         if (hitToCat.IsHit == true)
         {
+            Debug.Log("aaa");
             hitToCat.PopupHitObject();
             base.life -= 1;
         }
-        if(base.IsBroken() == true)
+        if (base.IsBroken() == true)
         {
-            buildBloken.OnBloken();
+            state = State.breaking;
+            buildBloken.OnBleak();
+            //buildBloken = null;
         }
     }
 }

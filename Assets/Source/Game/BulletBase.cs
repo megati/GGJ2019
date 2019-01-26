@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class BulletBase : MonoBehaviour
 {
-    public void SetQuaternion(Quaternion quaternion)
-    {
-        this.transform.rotation = quaternion;
-    }
+
 }

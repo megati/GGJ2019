@@ -12,6 +12,15 @@ public class BuildingBase : MonoBehaviour
     //耐久度
     protected int life=1;
 
+    protected enum State
+    {
+        Alive,
+        breaking,
+        broken,
+    };
+
+    protected State state;
+
     //初期化
     public void Init(int life, int bulletNum)
     {
@@ -29,6 +38,10 @@ public class BuildingBase : MonoBehaviour
 
     public bool IsBroken()
     {
+        if (state == State.broken)
+        {
+            return false;
+        }
         Debug.Log("life:" + life);
         return life <= 0;
     }
