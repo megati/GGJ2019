@@ -36,10 +36,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public int GetGameTime() { return (int)gameTime; }
 
-    public int GetGameTimeMinute() { return (int)gameTime / 60; }
-
-    public int GetGameTimeSecond() { return (int)gameTime % 60; }
-
     /// <summary>
     /// 現在の弾の数を返す
     /// </summary>
