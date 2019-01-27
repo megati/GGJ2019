@@ -231,10 +231,10 @@ MonoBehaviour:
     sampleshot: 0
     target_tag_name: 
     pan_states: 0
-  - Sound_Name: 
-    audioclip: {fileID: 0}
+  - Sound_Name: "\uFF11\uFF17\u306D\u3053\u30A8\u30D5\u30A7\u30AF\u30C8"
+    audioclip: {fileID: 8300000, guid: 0570679dadb14874f82291af18a650f8, type: 3}
     ChannelBase: 0
-    ObjectBase: 0
+    ObjectBase: 1
     Change:
       Change_now_origin: 0
       Rate_of_change: 0

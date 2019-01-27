@@ -14,6 +14,9 @@ public class GameSceneController : MonoBehaviour
     [SerializeField]
     private Animation bulletNoAnimation;
 
+    [SerializeField]
+    private SoundChild soundChild;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,7 @@ public class GameSceneController : MonoBehaviour
         {
             if (!isEndAction)
             {
+                soundChild.oneshot = true;
                 isEndAction = true;
                 timeOverAnimation.Play();
             }
@@ -45,6 +49,7 @@ public class GameSceneController : MonoBehaviour
         {
             if (!isEndAction)
             {
+                soundChild.oneshot = true;
                 isEndAction = true;
                 bulletNoAnimation.Play();
             }
