@@ -129,12 +129,7 @@ public class CatBullet : BulletBase
 
     private void JointHit()
     {
-        if (hitJoints[0] == null)
-        {
-            transform.position += Vector3.up * Time.deltaTime;
-            Debug.Log("ascd");
-        }
-        Debug.Log("ascd");
+        
     }
 
     void Escape()

@@ -21,6 +21,11 @@ public class BuildingBase : MonoBehaviour
 
     protected State state;
 
+    [SerializeField]
+    private GameObject particleObject;
+    
+
+
     //初期化
     public void Init(int life, int bulletNum)
     {
@@ -53,9 +58,18 @@ public class BuildingBase : MonoBehaviour
     public void DeleteHingeJointsChildren()
     {
         var hingeJoints = GetComponentsInChildren<HingeJoint>();
+        
         foreach ( var hingeJoint in hingeJoints)
         {
-            Destroy(hingeJoint);
+            if (hingeJoint.connectedBody != null)
+            {
+                //Debug.Log("lllll" + hingeJoint.connectedBody.gameObject.name);
+                Instantiate(particleObject, hingeJoint.connectedBody.position, Quaternion.identity);
+                hingeJoint.connectedBody.gameObject.SetActive(false);
+                hingeJoint.connectedBody = null;
+                //
+                
+            }
         }
     }
     /// <summary>

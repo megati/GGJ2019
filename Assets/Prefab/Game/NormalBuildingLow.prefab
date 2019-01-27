@@ -208,6 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0a23524903d9c42b0c04968848b186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleObject: {fileID: 7776319512594124153, guid: 099acfa7053e3d34ba7ed3df4e0893c6,
+    type: 3}
   hitToCat: {fileID: 2897443045652533287}
   soundChild: {fileID: 5086263661316313463}
 --- !u!114 &1481596401173095643
