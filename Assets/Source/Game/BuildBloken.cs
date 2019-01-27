@@ -34,6 +34,8 @@ public class BuildBloken : MonoBehaviour
    
     const float buildSpeedY = 2;
 
+    [SerializeField] private SoundChild soundChild;
+
     private bool isDestroy = false;
     public bool IsDestroy
     {
@@ -75,6 +77,7 @@ public class BuildBloken : MonoBehaviour
         {
             return;
         }
+        soundChild.oneshot = true;
         isBreakStart = true;
         StartCoroutine(StartBlokenAnimation());
     }
