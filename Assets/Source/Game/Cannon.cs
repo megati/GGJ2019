@@ -67,6 +67,7 @@ public class Cannon : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (GameManager.GetInstance().IsPerformance()) return;
 
         //セーブ
         

@@ -78,4 +78,8 @@ public class BuildingBase : MonoBehaviour
     public int GetRecoveryBulletNum() { return recoveryBulletNum; }
 
     public int GetLife() { return life; }
+
+    public bool IsStateBroken() { return (state == State.broken); }
+
+    public void StateBroken() { state = State.broken; }
 }

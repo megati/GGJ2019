@@ -58,7 +58,7 @@ public class BuildBloken : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        firstPosition = build.transform.position;
+
     }
 
     // Update is called once per frame
@@ -79,6 +79,7 @@ public class BuildBloken : MonoBehaviour
         }
         soundChild.oneshot = true;
         isBreakStart = true;
+        firstPosition = build.transform.position;
         StartCoroutine(StartBlokenAnimation());
     }
 
@@ -108,6 +109,7 @@ public class BuildBloken : MonoBehaviour
         particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         //猫カウント
         buildingBase.plusBulletNum();
+        buildingBase.StateBroken();
         // 死んだということにしておく
         isDestroy = true;
         yield return null;

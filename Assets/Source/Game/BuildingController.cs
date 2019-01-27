@@ -19,9 +19,15 @@ public class BuildingController : MonoBehaviour
     //ステージの建物作成データ
     private List<StageData> stageDataList;
 
+    [SerializeField]
+    private Animation cameraAnimation;
+
     //生成した建物情報リスト
-    private List<BuildingBase> createBuildingList=new List<BuildingBase>();
-    
+    private List<BuildingBase> createBuildingList = new List<BuildingBase>();
+
+    bool isEffect = false;
+
+    float pointY = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +36,8 @@ public class BuildingController : MonoBehaviour
         foreach (var buildingData in stageDataList[0].GetBuildingDataList())
         {
             Transform point = GetPointTransform(buildingData.number);
-            if (point==null) continue;
+            if (point == null) continue;
+            pointY = point.position.y;
             var obj = Instantiate(buildingObjectList[(int)buildingData.createNumber], point) as GameObject;
             obj.transform.localScale = buildingObjectList[(int)buildingData.createNumber].transform.localScale;
             obj.transform.position = point.transform.position;
@@ -40,17 +47,46 @@ public class BuildingController : MonoBehaviour
         }
     }
 
+    bool isAllBroken = false;
     // Update is called once per frame
     void Update()
     {
-        bool isAllBroken = true;
-        foreach (var createBuilding in createBuildingList)
+        if (!isEffect)
         {
-            if (!createBuilding.IsBroken()) isAllBroken = false;
+            isAllBroken = true;
+            foreach (var createBuilding in createBuildingList)
+            {
+                if (!createBuilding.IsStateBroken()) isAllBroken = false;
+            }
         }
 
         //全部破壊
-        if (isAllBroken) RandomStageCreate();
+        if (isAllBroken)
+        {
+            if (!isEffect)
+            {
+                GameManager.GetInstance().Performance(true);
+                cameraAnimation.Play();
+                RandomStageCreate();
+                //StartCoroutine(YurasuAnimation());
+            }
+            isEffect = true;
+        }
+
+        if (isEffect)
+        {
+            Debug.Log("check");
+            if (!cameraAnimation.IsPlaying("Yurasu"))
+            {
+                Debug.Log("Hit");
+                foreach (var createBuilding in createBuildingList)
+                {
+                    createBuilding.gameObject.transform.position = new Vector3(createBuilding.gameObject.transform.position.x, pointY, createBuilding.gameObject.transform.position.z);
+                }
+                GameManager.GetInstance().Performance(false);
+                isEffect = false;
+            }
+        }
     }
 
     /// <summary>
@@ -74,7 +110,7 @@ public class BuildingController : MonoBehaviour
     /// </summary>
     void RandomStageCreate()
     {
-        foreach (var createBuilding in createBuildingList) { Destroy(createBuilding.gameObject);  }
+        foreach (var createBuilding in createBuildingList) { Destroy(createBuilding.gameObject); }
         createBuildingList.Clear();
 
         foreach (var buildingData in stageDataList[Random.Range(0, stageDataList.Count)].GetBuildingDataList())
@@ -83,10 +119,39 @@ public class BuildingController : MonoBehaviour
             if (point == null) continue;
             var obj = Instantiate(buildingObjectList[(int)buildingData.createNumber], point) as GameObject;
             obj.transform.localScale = buildingObjectList[(int)buildingData.createNumber].transform.localScale;
-            obj.transform.position = point.transform.position;
+            obj.transform.position = point.transform.position + new Vector3(0,-5.0f,0);
             var building = obj.GetComponent<BuildingBase>();
             building.Init(buildingData.life, buildingData.recoveryBulletNum);
             createBuildingList.Add(building);
         }
+    }
+
+    private float animationTime = 0;
+    private float buildMoveY = 0;
+    float buildSpeedY = 1.0f;
+    /// <summary>
+    /// ゆらすアニメーション
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator YurasuAnimation()
+    {
+        Vector3 firstPosition = createBuildingList[0].transform.position;
+
+        while (createBuildingList[0].transform.position.y < pointY)
+        {
+            foreach (var createBuilding in createBuildingList)
+            {
+                createBuilding.transform.position = firstPosition + new Vector3(Mathf.Sin(Mathf.Rad2Deg * animationTime) * 1, buildMoveY);
+
+                animationTime += Time.deltaTime;
+                buildMoveY -= buildSpeedY * Time.deltaTime;
+                if (animationTime > 1) animationTime = 0;
+            }
+            
+            yield return null;
+        }
+
+        isEffect = false;
+        yield return null;
     }
 }

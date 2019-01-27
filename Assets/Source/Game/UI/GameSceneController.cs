@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameSceneController : MonoBehaviour
 {
     //終了アクション
-    bool isEndAction = false;
+    bool isTimeEndAction = false;
+    //
+    bool isBulletEndAction = false;
 
     [SerializeField]
     private Animation timeOverAnimation;
@@ -20,48 +22,57 @@ public class GameSceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        isBulletEndAction = false;
+        isTimeEndAction = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         // 条件満たしたら、エンドに行く
-        if (GameManager.GetInstance().GetGameTime() <= 0.0f && GameManager.GetInstance().IsPerformance())
+        if (GameManager.GetInstance().GetGameTime() <= 0.0f && GameManager.GetInstance().IsPerformance() && !isBulletEndAction)
         {
-            if (!isEndAction)
+            if (!isTimeEndAction)
             {
                 soundChild.oneshot = true;
-                isEndAction = true;
+                isTimeEndAction = true;
                 timeOverAnimation.Play();
             }
-            else
-            {
-                //アニメーションが終わっている
-                if (!timeOverAnimation.IsPlaying("DownGameOverText"))
-                {
-                    Cursor.visible = true;
-                    SceneManager.LoadScene("Result");
-                }
-            }
         }
-        else if (GameManager.GetInstance().GetBulletNum() <= 0)
+        if (GameManager.GetInstance().GetBulletNum() <= 0 && !isTimeEndAction)
         {
-            if (!isEndAction)
+            if (!isBulletEndAction)
             {
                 soundChild.oneshot = true;
-                isEndAction = true;
+                isBulletEndAction = true;
                 bulletNoAnimation.Play();
             }
-            else
+        }
+
+        if (isBulletEndAction)
+        {
+            //アニメーションが終わっている
+            if (!bulletNoAnimation.IsPlaying("UpGameOverText"))
             {
-                //アニメーションが終わっている
-                if (!bulletNoAnimation.IsPlaying("UpGameOverText"))
-                {
-                    Cursor.visible = true;
-                    SceneManager.LoadScene("Result");
-                }
+                Cursor.visible = true;
+                SceneManager.LoadScene("Result");
             }
+        }
+
+        if (isTimeEndAction)
+        {
+            //アニメーションが終わっている
+            if (!timeOverAnimation.IsPlaying("DownGameOverText"))
+            {
+                Cursor.visible = true;
+                SceneManager.LoadScene("Result");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Cursor.visible = true;
+            SceneManager.LoadScene("Result");
         }
     }
 

@@ -31,7 +31,7 @@ public class GameManager
     public void GameInit()
     {
         gameTime = 60.0f;
-        bulletNum = 30;
+        bulletNum = 5;
         breakBuildingCount = 0;
         isPerformance = false;
     }
@@ -77,6 +77,11 @@ public class GameManager
     /// 演出中かどうか返す
     /// </summary>
     public bool IsPerformance() { return isPerformance; }
+
+    /// <summary>
+    /// 演出
+    /// </summary>
+    public void Performance(bool ischeck) { isPerformance= ischeck; }
 
     /// <summary>
     /// タイトルからゲームシーンへ
