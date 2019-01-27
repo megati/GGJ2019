@@ -61,4 +61,6 @@ public class BuildingBase : MonoBehaviour
     /// 回復できる弾の数を返す
     /// </summary>
     public int GetRecoveryBulletNum() { return recoveryBulletNum; }
+
+    public int GetLife() { return life; }
 }
