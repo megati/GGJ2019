@@ -49,17 +49,17 @@ MonoBehaviour:
     recoveryBulletNum: 3
     life: 3
   - number: 2
-    createNumber: 0
+    createNumber: 1
     recoveryBulletNum: 5
     life: 4
   - number: 4
     createNumber: 0
     recoveryBulletNum: 7
-    life: 5
+    life: 6
   - number: 5
     createNumber: 1
     recoveryBulletNum: 4
-    life: 3
+    life: 4
   - number: 9
     createNumber: 2
     recoveryBulletNum: 2
