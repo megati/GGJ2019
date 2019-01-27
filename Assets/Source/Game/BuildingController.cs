@@ -21,7 +21,6 @@ public class BuildingController : MonoBehaviour
 
     //生成した建物情報リスト
     private List<BuildingBase> createBuildingList=new List<BuildingBase>();
-
     
 
     // Start is called before the first frame update
@@ -49,8 +48,8 @@ public class BuildingController : MonoBehaviour
             if (!createBuilding.IsBroken()) isAllBroken = false;
         }
 
-        //
-        if (isAllBroken) { }
+        //全部破壊
+        if (isAllBroken) RandomStageCreate();
     }
 
     /// <summary>
@@ -67,5 +66,25 @@ public class BuildingController : MonoBehaviour
         Debug.LogError("No building point. number=" + number);
 
         return null;
+    }
+
+    /// <summary>
+    /// 生成する場所のトランスフォームを返す
+    /// </summary>
+    void RandomStageCreate()
+    {
+        foreach (var createBuilding in createBuildingList) { Destroy(createBuilding.gameObject);  }
+        createBuildingList.Clear();
+
+        foreach (var buildingData in stageDataList[Random.Range(0, stageDataList.Count)].GetBuildingDataList())
+        {
+            Transform point = GetPointTransform(buildingData.number);
+            if (point == null) continue;
+            var obj = Instantiate(buildingObjectList[(int)buildingData.createNumber], point) as GameObject;
+            obj.transform.localScale = new Vector3(1, 1, 1);
+            var building = obj.GetComponent<BuildingBase>();
+            building.Init(buildingData.life, buildingData.recoveryBulletNum);
+            createBuildingList.Add(building);
+        }
     }
 }

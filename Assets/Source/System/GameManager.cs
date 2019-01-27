@@ -14,7 +14,7 @@ public class GameManager
     public static GameManager GetInstance() { return _singleInstance; }
 
     //ゲーム時間
-    private float gameTime = 2.0f;
+    private float gameTime = 60.0f;
 
     //演出中か
     private bool isPerformance = false;
