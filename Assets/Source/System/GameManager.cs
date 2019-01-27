@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// ゲーム管理
 /// </summary>
-public class GameManager : MonoBehaviour
+public class GameManager
 {
     private static GameManager _singleInstance = new GameManager();
 
@@ -32,7 +32,12 @@ public class GameManager : MonoBehaviour
     {
         //演出中なら処理しない
         if (isPerformance) return;
-        gameTime -= 1.0f * Time.deltaTime;
+        
+        if (gameTime <= 0f)
+        {
+            SceneManager.LoadScene("Result");
+        }
+        else gameTime -= 1.0f * Time.deltaTime;
     }
 
     /// <summary>
@@ -69,13 +74,9 @@ public class GameManager : MonoBehaviour
         if (ispush == false)
         {
             ispush = true;
-            Invoke("StartMethod", 0.4f);
+            SceneManager.LoadScene("GameScene");
             return;
         }
-    }
-    void StartMethod()
-    {
-        SceneManager.LoadScene("GameScene");
     }
 
     /// <summary>
@@ -85,16 +86,12 @@ public class GameManager : MonoBehaviour
     {
         if (gameTime <= 0f)
         {
-            Invoke("ResultMethod", 5.0f);
+            SceneManager.LoadScene("Result");
         }
         if (bulletNum == 0)
         {
-            Invoke("ResultMethod", 5.0f);
+            SceneManager.LoadScene("Result");
         }
-    }
-    void ResultMethod()
-    {
-        SceneManager.LoadScene("Result");
     }
 
     /// <summary>
@@ -105,13 +102,9 @@ public class GameManager : MonoBehaviour
         if (ispush == false)
         {
             ispush = true;
-            Invoke("TitleMethod", 0.4f);
+            SceneManager.LoadScene("TitleScene");
             return;
         }
-    }
-    void TitleMethod()
-    {
-        SceneManager.LoadScene("TitleScene");
     }
 
     /// <summary>
@@ -122,17 +115,13 @@ public class GameManager : MonoBehaviour
         if (ispush == false)
         {
             ispush = true;
-            Invoke("QuitMethod", 0.4f);
+            Application.Quit();
             return;
         }
         else
         {
             return;
         }
-    }
-    void QuitMethod()
-    {
-        Application.Quit();
     }
 
     /// 壊れたビルの数を返す
