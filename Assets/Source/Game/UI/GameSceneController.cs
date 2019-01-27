@@ -83,7 +83,7 @@ public class GameSceneController : MonoBehaviour
     {
         int bulletNum = GameManager.GetInstance().GetBulletNum();
         yield return new WaitForSeconds(4.0f);
-        if (GameManager.GetInstance().GetBulletNum() == bulletNum)
+        if (GameManager.GetInstance().GetBulletNum() <= 0)
         {
             soundChild.oneshot = true;
             isBulletEndAction = true;

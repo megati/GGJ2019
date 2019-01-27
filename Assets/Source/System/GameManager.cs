@@ -20,7 +20,7 @@ public class GameManager
     private bool isPerformance = false;
 
     //弾の残段数
-    private int bulletNum = 1;
+    private int bulletNum = 30;
 
     //壊れたビルカウント
     private int breakBuildingCount = 0;
