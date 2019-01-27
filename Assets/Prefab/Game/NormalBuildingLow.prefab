@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8139870808770449926}
   - component: {fileID: 1481596401173095643}
   - component: {fileID: 6937483021323667123}
+  - component: {fileID: 5086263661316313463}
   - component: {fileID: 2727666038045931453}
   m_Layer: 0
   m_Name: NormalBuildingLow
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitToCat: {fileID: 2897443045652533287}
+  soundChild: {fileID: 5086263661316313463}
 --- !u!114 &1481596401173095643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +89,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sound_Name: "\uFF13\u30D3\u30EB\u306E\u5D29\u58CA"
+  child_number: 0
+  start_spot: 0
+  oneshot: 0
+  loop: 0
+--- !u!114 &5086263661316313463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394918413562629267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb938d5cc7495294b9d85c193f4d1077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sound_Name: "\uFF11\uFF12\u30D3\u30EB\u88AB\u5F3E\u97F3"
   child_number: 0
   start_spot: 0
   oneshot: 0

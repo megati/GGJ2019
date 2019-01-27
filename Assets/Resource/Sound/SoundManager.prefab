@@ -177,8 +177,8 @@ MonoBehaviour:
     target_tag_name: 
     pan_states: 0
   - Sound_Name: "\uFF11\uFF12\u30D3\u30EB\u88AB\u5F3E\u97F3"
-    audioclip: {fileID: 0}
-    ChannelBase: 0
+    audioclip: {fileID: 8300000, guid: 2ff90fa01d3cec74e8a9e172d619ff82, type: 3}
+    ChannelBase: 1
     ObjectBase: 0
     Change:
       Change_now_origin: 0

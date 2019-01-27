@@ -8,6 +8,8 @@ public class NormalBuilding : BuildingBase
     [SerializeField]
     private BillHitToCat hitToCat;
 
+    [SerializeField] private SoundChild soundChild;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class NormalBuilding : BuildingBase
     {
         if (hitToCat.IsHit == true)
         {
+            soundChild.oneshot = true;
             Debug.Log("aaa");
             hitToCat.PopupHitObject();
             base.life -= 1;
