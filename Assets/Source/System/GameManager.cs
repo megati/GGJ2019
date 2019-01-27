@@ -14,7 +14,7 @@ public class GameManager
     public static GameManager GetInstance() { return _singleInstance; }
 
     //ゲーム時間
-    private float gameTime = 180.0f;
+    private float gameTime = 2.0f;
 
     //演出中か
     private bool isPerformance = false;
@@ -35,7 +35,9 @@ public class GameManager
         
         if (gameTime <= 0f)
         {
-            SceneManager.LoadScene("Result");
+            //カーソルを表示する
+            Cursor.visible = true;
+            SceneChange("Result");
         }
         else gameTime -= 1.0f * Time.deltaTime;
     }
@@ -74,7 +76,7 @@ public class GameManager
         if (ispush == false)
         {
             ispush = true;
-            SceneManager.LoadScene("GameScene");
+            SceneChange("GameScene");
             return;
         }
     }
@@ -86,11 +88,11 @@ public class GameManager
     {
         if (gameTime <= 0f)
         {
-            SceneManager.LoadScene("Result");
+            SceneChange("Result");
         }
         if (bulletNum == 0)
         {
-            SceneManager.LoadScene("Result");
+            SceneChange("Result");
         }
     }
 
@@ -102,7 +104,7 @@ public class GameManager
         if (ispush == false)
         {
             ispush = true;
-            SceneManager.LoadScene("TitleScene");
+            SceneChange("TitleScene");
             return;
         }
     }
@@ -122,6 +124,13 @@ public class GameManager
         {
             return;
         }
+    }
+
+    // シーン入れ替え
+    void SceneChange(string sceneName)
+    {
+        Cursor.visible = true;
+        SceneManager.LoadScene(sceneName);
     }
 
     /// 壊れたビルの数を返す
