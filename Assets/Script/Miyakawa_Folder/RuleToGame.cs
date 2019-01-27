@@ -7,8 +7,8 @@ public class RuleToGame : MonoBehaviour
 {
     public bool ispush;
 
-    [SerializeField]
-    private SoundChild soundchild;
+    //[SerializeField]
+    //private SoundChild soundchild;
     void Start()
     {
         
@@ -17,12 +17,14 @@ public class RuleToGame : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            GoToGame();
+        }
     }
 
     public void GoToGame()
     {
-        soundchild.oneshot = true;
+        //soundchild.oneshot = true;
         if (ispush == false)
         {
             ispush = true;
