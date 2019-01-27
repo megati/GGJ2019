@@ -49,6 +49,7 @@ public class BuildingBase : MonoBehaviour
         Debug.Log("life:" + life);
         return life <= 0;
     }
+
     public void DeleteHingeJointsChildren()
     {
         var hingeJoints = GetComponentsInChildren<HingeJoint>();
