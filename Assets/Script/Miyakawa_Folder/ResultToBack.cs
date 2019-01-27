@@ -9,13 +9,13 @@ public class ResultToBack : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
 
     void Update()
     {
-        
+
     }
 
     public void BackToTitle()
@@ -24,6 +24,16 @@ public class ResultToBack : MonoBehaviour
         {
             ispush = true;
             SceneManager.LoadScene("StaffRollScene");
+            return;
+        }
+    }
+
+    public void OnGameBckButton()
+    {
+        if (ispush == false)
+        {
+            ispush = true;
+            SceneManager.LoadScene("GameScene");
             return;
         }
     }
