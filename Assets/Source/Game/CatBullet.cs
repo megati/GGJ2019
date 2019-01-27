@@ -12,6 +12,15 @@ public class CatBullet : BulletBase
     [SerializeField]
     private List<HitJoint> hitJoints = new List<HitJoint>();
 
+    [SerializeField]
+    private AnimationCurve animationCurve = null;
+    [SerializeField]
+    private float scaleAnimationMaxDistance = 0;
+
+    private Vector3 firstScale = Vector3.zero;
+    private Vector3 firstPosition = Vector3.zero;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +33,8 @@ public class CatBullet : BulletBase
         {
             hitJoints.Add(hits[i]);
         }
+        firstScale = transform.localScale;
+        firstPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -32,6 +43,14 @@ public class CatBullet : BulletBase
     {
         //Vector3 direction = rigidBody.velocity.normalized;
         //this.transform.rotation = Quaternion.Euler(direction);
+
+        float moveZ = transform.position.z - firstPosition.z;
+        //Debug.Log("movez:"+moveZ);
+        float scaleAnimationTime = Mathf.Min( moveZ / scaleAnimationMaxDistance, 1.0f);
+        Debug.Log("scaleAnimationTime:" + animationCurve.Evaluate(scaleAnimationMaxDistance));
+
+        transform.localScale = firstScale * animationCurve.Evaluate(scaleAnimationTime);
+
         bool isHit = false;
         GameObject hitObject = null;
         foreach ( var hitJoint in hitJoints )
@@ -48,10 +67,20 @@ public class CatBullet : BulletBase
             SetJoint(hitObject);
             Destroy(this);
         }
-
-
+        else
+        {
+            //空気抵抗的なやつは、ころしておく
+            //rigidBody.AddForce(-velocitySpeed.normalized, ForceMode.Acceleration);
+        }
+        
     }
-    
+
+    private void FixedUpdate()
+    {
+        rigidBody.AddForce(Vector3.down * 10.0f, ForceMode.Acceleration);
+    }
+
+
     void SetJoint(GameObject hitObjent)
     {
         foreach (var hitJoint in hitJoints)

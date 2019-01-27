@@ -87,8 +87,10 @@ public class Cannon : MonoBehaviour
                 {
                     Vector3 lockPosition = this.transform.position + (lengthAngle.transform.forward * 3);
                     lockPosition.y = this.transform.position.y;
-                    Quaternion rotate = Quaternion.LookRotation( lockPosition );
-                    BulletBase bullet = Instantiate(bulletObject, gameObject.transform.position, lengthAngle.transform.GetChild(0).rotation) as BulletBase;
+                    //Quaternion rotate = Quaternion.LookRotation( lockPosition, Vector3.up );
+                    var rotate = lengthAngle.transform.GetChild(0).rotation;
+
+                    BulletBase bullet = Instantiate(bulletObject, gameObject.transform.position, rotate) as BulletBase;
                     //bullet.SetQuaternion();
                 }
                 else

@@ -91,13 +91,13 @@ public class GameManager : MonoBehaviour
     {
         if (gameTime <= 0f)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             DontDestroyOnLoad(this);
             Invoke("ResultMethod", 5.0f);
         }
         if (bulletNum == 0)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             DontDestroyOnLoad(this);
             Invoke("ResultMethod", 5.0f);
         }
