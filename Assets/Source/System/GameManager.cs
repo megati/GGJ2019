@@ -33,6 +33,7 @@ public class GameManager
         gameTime = 60.0f;
         bulletNum = 30;
         breakBuildingCount = 0;
+        isPerformance = false;
     }
 
     /// <summary>
