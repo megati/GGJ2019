@@ -77,10 +77,10 @@ MonoBehaviour:
     sampleshot: 0
     target_tag_name: 
     pan_states: 0
-  - Sound_Name: "\uFF13\u30D3\u30EB\u306E\u5D29\u58CA "
+  - Sound_Name: "\uFF13\u30D3\u30EB\u306E\u5D29\u58CA"
     audioclip: {fileID: 8300000, guid: 37615a7ddb011824691cdb46d9accefc, type: 3}
-    ChannelBase: 0
-    ObjectBase: 1
+    ChannelBase: 1
+    ObjectBase: 0
     Change:
       Change_now_origin: 0
       Rate_of_change: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
     pan_states: 0
   - Sound_Name: "\uFF15\u767A\u5C04\u732B\uFF11"
     audioclip: {fileID: 8300000, guid: 78ae8441d2c9d494f8be090e7486b18b, type: 3}
-    ChannelBase: 0
-    ObjectBase: 1
+    ChannelBase: 1
+    ObjectBase: 0
     Change:
       Change_now_origin: 0
       Rate_of_change: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
     sampleshot: 0
     target_tag_name: 
     pan_states: 0
-  - Sound_Name: 
+  - Sound_Name: "\uFF11\uFF12\u30D3\u30EB\u88AB\u5F3E\u97F3"
     audioclip: {fileID: 0}
     ChannelBase: 0
     ObjectBase: 0
