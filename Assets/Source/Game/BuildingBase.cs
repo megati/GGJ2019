@@ -31,6 +31,7 @@ public class BuildingBase : MonoBehaviour
     {
         this.life = life;
         this.recoveryBulletNum = bulletNum;
+
     }
 
     /// <summary>

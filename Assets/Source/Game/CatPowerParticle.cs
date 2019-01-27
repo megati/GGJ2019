@@ -18,7 +18,7 @@ public class CatPowerParticle : MonoBehaviour
 
     private float time;
     public Image image;
-    public 
+    private int random;
 
 
     // Start is called before the first frame update
@@ -26,7 +26,9 @@ public class CatPowerParticle : MonoBehaviour
     {
         firstPosition = transform.position;
         target = GameObject.Find("cannon").transform.position;
-
+        image = GameObject.Find("NekoPanel").GetComponent<Image>();
+        random = Random.Range(0, 4);
+        image.sprite = sprites[random];
     }
 
     // Update is called once per frame
@@ -36,9 +38,11 @@ public class CatPowerParticle : MonoBehaviour
         if (time < 2.0f) {
             this.transform.position = Vector3.Slerp(firstPosition, target, curve.Evaluate(time / 2.0f));
         }
-        else if(time > 2.0f && time < 4.0f)
+        else if(time > 2.0f && time < 4.2f)
         {
-            image.transform.localScale = Vector3.Lerp(Vector3.zero,Vector3.one,(time - 2.0f)/2.0f);
+            float t = (time - 2.0f) / 1.0f;
+            image.transform.localScale = Vector3.Lerp(Vector3.zero,Vector3.one,t);
+            image.color = new Color(1,1,1,1.0f-t);
         }
     }
 }
