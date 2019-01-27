@@ -82,7 +82,8 @@ public class BuildingController : MonoBehaviour
             Transform point = GetPointTransform(buildingData.number);
             if (point == null) continue;
             var obj = Instantiate(buildingObjectList[(int)buildingData.createNumber], point) as GameObject;
-            obj.transform.localScale = new Vector3(1, 1, 1);
+            obj.transform.localScale = buildingObjectList[(int)buildingData.createNumber].transform.localScale;
+            obj.transform.position = point.transform.position;
             var building = obj.GetComponent<BuildingBase>();
             building.Init(buildingData.life, buildingData.recoveryBulletNum);
             createBuildingList.Add(building);
