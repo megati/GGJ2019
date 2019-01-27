@@ -6,6 +6,7 @@ public class HitJoint : MonoBehaviour
 {
 
     public bool isHit { get; set; }
+    public bool isGround { get; set; }
     private GameObject hitObject;
     public GameObject HitObject
     {
@@ -29,6 +30,11 @@ public class HitJoint : MonoBehaviour
         {
             hitObject = collision.gameObject;
             isHit = true;
+        }
+        else if (collision.gameObject.layer == 10)
+        {
+            isGround = true;
+            hitObject = collision.gameObject;
         }
     }
 
