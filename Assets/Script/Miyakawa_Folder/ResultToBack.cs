@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ResultToBack : MonoBehaviour
 {
     public bool ispush;
+    [SerializeField] private SoundChild soundchild;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class ResultToBack : MonoBehaviour
 
     public void BackToTitle()
     {
+        soundchild.oneshot = true;
         if (ispush == false)
         {
             ispush = true;
@@ -30,6 +32,7 @@ public class ResultToBack : MonoBehaviour
 
     public void OnGameBckButton()
     {
+        soundchild.oneshot = true;
         if (ispush == false)
         {
             ispush = true;
