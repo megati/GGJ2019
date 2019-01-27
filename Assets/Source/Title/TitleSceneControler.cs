@@ -24,7 +24,7 @@ public class TitleSceneControler : MonoBehaviour
     {
         soundChild.oneshot = true;
         //GameManager.GetInstance().
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("RuleScene");
     }
 
     public void OnGameEndButton()
