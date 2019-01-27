@@ -59,7 +59,7 @@ public class Cannon : MonoBehaviour
         maxSideAngle = transform.eulerAngles.y + 30;
         minSideAngle = transform.eulerAngles.y - 30;
         maxUpAngle = lengthAngle.eulerAngles.z + 50;
-        minDownAngle = lengthAngle.eulerAngles.z;
+        minDownAngle = lengthAngle.eulerAngles.z+10;
     }
 
     /// <summary>
@@ -67,6 +67,10 @@ public class Cannon : MonoBehaviour
     /// </summary>
     void Update()
     {
+
+        //セーブ
+        
+
         //演出中なら
         if (GameManager.GetInstance().IsPerformance()) return;
 
@@ -122,7 +126,7 @@ public class Cannon : MonoBehaviour
         //補正
         if (transform.eulerAngles.y > maxSideAngle) transform.eulerAngles = new Vector3(transform.eulerAngles.x, maxSideAngle, transform.eulerAngles.z);
         if (transform.eulerAngles.y < minSideAngle) transform.eulerAngles = new Vector3(transform.eulerAngles.x, minSideAngle, transform.eulerAngles.z);
-        if (lengthAngle.eulerAngles.z > maxUpAngle) lengthAngle.eulerAngles = new Vector3(lengthAngle.eulerAngles.x, lengthAngle.eulerAngles.y, maxUpAngle);
-        if (lengthAngle.eulerAngles.z < minDownAngle) lengthAngle.eulerAngles = new Vector3(lengthAngle.eulerAngles.x, lengthAngle.eulerAngles.y, minDownAngle);
+        if (lengthAngle.eulerAngles.z > maxUpAngle && lengthAngle.eulerAngles.z < maxUpAngle+50.0f) lengthAngle.eulerAngles = new Vector3(lengthAngle.eulerAngles.x, lengthAngle.eulerAngles.y, maxUpAngle);
+        if (lengthAngle.eulerAngles.z < minDownAngle || lengthAngle.eulerAngles.z > maxUpAngle + 50.0f) lengthAngle.eulerAngles = new Vector3(lengthAngle.eulerAngles.x, lengthAngle.eulerAngles.y, minDownAngle);
     }
 }
