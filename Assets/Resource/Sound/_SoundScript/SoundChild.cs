@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundChild : MonoBehaviour
 {
 
@@ -14,6 +15,13 @@ public class SoundChild : MonoBehaviour
     private bool nowChannel; // 現在のチャンネルがどちらかの判断用trueがChannelBase
 
     public bool start_spot;
+    public bool oneshot;
+
+    private bool playonawake = false;
+    public bool loop = false;
+
+    //private float audiotime = 0;
+    //private float countaudiotime = 0;
 
     void Start()
     {
@@ -23,6 +31,13 @@ public class SoundChild : MonoBehaviour
 
         //"SoundManager"オブジェクトからSoundMasterを取得
         soundmaster = GameObject.Find("SoundManager").GetComponent<SoundMaster>();
+
+        //playOnAwakeを通常falseに
+        audioSource.playOnAwake = playonawake;
+
+        //
+
+        audioSource.loop = loop;
 
         // 最初にどこのデータを参照するか名前で指定→名前から配列番号を取得（名前間違えると悲惨なので注意）
         for (int i = 0; i < soundmaster.list_size.Length; i++)
@@ -36,6 +51,13 @@ public class SoundChild : MonoBehaviour
         //AudioSource内に上記オーディオクリップを格納
         audioSource.clip = child_audioclip;
 
+        //audiotime = child_audioclip.length;
+
+        if (loop && oneshot)
+        {
+            oneshot = false;
+            audioSource.Play();
+        }
         //spatialBlend(2Dか3Dかの割合、ブレンド率。)→変化するようにする
         //audioSource.spatialBlend = 0;//0→2D　1→3D 
         //下記関数等で使用している
@@ -59,6 +81,18 @@ public class SoundChild : MonoBehaviour
 
     void Update()
     {
+
+        soundmaster.list_size[child_number].sampleshot = oneshot;
+        oneshot = false;
+
+        //if (loop)
+        //{
+        //    countaudiotime += Time.deltaTime;
+        //    if (countaudiotime >= audiotime)
+        //    {
+
+        //    }
+        //}
 
         SoundMaster.Instance.SampleShot(soundmaster.list_size[child_number].sampleshot, audioSource, soundmaster, child_audioclip, child_number);
 

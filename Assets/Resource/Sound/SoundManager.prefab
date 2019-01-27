@@ -1,0 +1,266 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &766568027627874061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766568027627874051}
+  - component: {fileID: 766568027627874050}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &766568027627874051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766568027627874061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766568027627874050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766568027627874061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0428ba907ff7d4f9138ac2b3ec3549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list_size:
+  - Sound_Name: "\uFF10\u30B9\u30BF\u30FC\u30C8\u753B\u9762BGM"
+    audioclip: {fileID: 8300000, guid: 46df70926a14a234eb4f5e84e4ad8dc2, type: 3}
+    ChannelBase: 1
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF11\u30E1\u30A4\u30F3\u753B\u9762BGM"
+    audioclip: {fileID: 8300000, guid: 6a78880ce6cee0548a6a2afa57d94f40, type: 3}
+    ChannelBase: 1
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF12\u30EA\u30B6\u30EB\u30C8\u30B8\u30F3\u30B0\u30EB"
+    audioclip: {fileID: 8300000, guid: d42e2e7245663bc4bb6a7713bc6e7dfd, type: 3}
+    ChannelBase: 1
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF13\u30D3\u30EB\u306E\u5D29\u58CA "
+    audioclip: {fileID: 8300000, guid: 37615a7ddb011824691cdb46d9accefc, type: 3}
+    ChannelBase: 0
+    ObjectBase: 1
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF14\u767A\u5C04"
+    audioclip: {fileID: 8300000, guid: 094ee9437f1bb7540b3a2d20023f8a60, type: 3}
+    ChannelBase: 1
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF15\u767A\u5C04\u732B\uFF11"
+    audioclip: {fileID: 8300000, guid: 78ae8441d2c9d494f8be090e7486b18b, type: 3}
+    ChannelBase: 0
+    ObjectBase: 1
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF16\u767A\u5C04\u732B\uFF12"
+    audioclip: {fileID: 8300000, guid: 79ea20b9ce31f3441ac75427b30da878, type: 3}
+    ChannelBase: 0
+    ObjectBase: 1
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF17\u732B\u5E30\u308A\uFF11"
+    audioclip: {fileID: 8300000, guid: d6279f60dc596fe4ba44ef649f41b60e, type: 3}
+    ChannelBase: 0
+    ObjectBase: 1
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF18\u732B\u5E30\u308A\uFF12"
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 1
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF19\u30B9\u30BF\u30FC\u30C8\uFF11\uFF12\uFF13"
+    audioclip: {fileID: 8300000, guid: c88bb53f5022c7448bf59c1bf47f389d, type: 3}
+    ChannelBase: 1
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF11\uFF10\u30B9\u30BF\u30FC\u30C8"
+    audioclip: {fileID: 8300000, guid: 2ca7cf1e2e5b59344b83917b34098a06, type: 3}
+    ChannelBase: 1
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: "\uFF11\uFF11\u30B2\u30FC\u30E0\u7D42\u4E86"
+    audioclip: {fileID: 8300000, guid: 7bdd16bba51fb8e4cab4bb05c932920b, type: 3}
+    ChannelBase: 1
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0
+  - Sound_Name: 
+    audioclip: {fileID: 0}
+    ChannelBase: 0
+    ObjectBase: 0
+    Change:
+      Change_now_origin: 0
+      Rate_of_change: 0
+      Rate_now: 0
+    sampleshot: 0
+    target_tag_name: 
+    pan_states: 0

@@ -19,7 +19,7 @@ public class SoundMaster : MonoSingleton<SoundMaster>
         public string Sound_Name;//音源の名前
         public AudioClip audioclip;//音源本体
 
-        [SerializeField, HeaderAttribute("Select either/どちらか選択してください（開始時のみ影響します）")] //項目の前にあるタイトル
+        [SerializeField, HeaderAttribute("Select either（開始時のみ影響します）")] //項目の前にあるタイトル
 
         public bool ChannelBase;
         public bool ObjectBase;
