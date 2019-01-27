@@ -88,7 +88,7 @@ public class CatBullet : BulletBase
     {
         if (state == State.Flying)
         {
-            rigidBody.AddForce(Vector3.down * 10.0f, ForceMode.Acceleration);
+            rigidBody.AddForce(Vector3.down * 35.0f, ForceMode.Acceleration);
         }
     }
 
