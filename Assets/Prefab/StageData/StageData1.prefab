@@ -46,8 +46,8 @@ MonoBehaviour:
   buildingDataList:
   - number: 1
     createNumber: 2
-    recoveryBulletNum: 3
-    life: 2
+    recoveryBulletNum: 2
+    life: 1
   - number: 3
     createNumber: 2
     recoveryBulletNum: 2
@@ -66,5 +66,5 @@ MonoBehaviour:
     life: 4
   - number: 13
     createNumber: 2
-    recoveryBulletNum: 4
-    life: 3
+    recoveryBulletNum: 3
+    life: 2
