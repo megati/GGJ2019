@@ -44,35 +44,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingDataList:
-  - number: 1
-    createNumber: 0
-    recoveryBulletNum: 10
-    life: 8
-  - number: 2
-    createNumber: 1
-    recoveryBulletNum: 7
-    life: 5
   - number: 4
-    createNumber: 1
+    createNumber: 0
     recoveryBulletNum: 6
     life: 5
-  - number: 6
+  - number: 5
     createNumber: 0
-    recoveryBulletNum: 8
-    life: 6
-  - number: 8
-    createNumber: 2
-    recoveryBulletNum: 2
-    life: 1
+    recoveryBulletNum: 6
+    life: 5
   - number: 10
-    createNumber: 1
-    recoveryBulletNum: 4
-    life: 4
+    createNumber: 0
+    recoveryBulletNum: 7
+    life: 5
   - number: 12
-    createNumber: 1
-    recoveryBulletNum: 5
-    life: 4
-  - number: 13
-    createNumber: 2
-    recoveryBulletNum: 3
-    life: 2
+    createNumber: 0
+    recoveryBulletNum: 7
+    life: 6
