@@ -10,6 +10,8 @@ public class GameSceneController : MonoBehaviour
     //
     bool isBulletEndAction = false;
 
+    bool isBulletColutine = false;
+
     [SerializeField]
     private Animation timeOverAnimation;
 
@@ -24,6 +26,7 @@ public class GameSceneController : MonoBehaviour
     {
         isBulletEndAction = false;
         isTimeEndAction = false;
+        isBulletColutine = false;
     }
 
     // Update is called once per frame
@@ -43,9 +46,10 @@ public class GameSceneController : MonoBehaviour
         {
             if (!isBulletEndAction)
             {
-                soundChild.oneshot = true;
-                isBulletEndAction = true;
-                bulletNoAnimation.Play();
+                if (isBulletColutine == false) {
+                    isBulletColutine = true;
+                    StartCoroutine(test());
+                }
             }
         }
 
@@ -74,6 +78,21 @@ public class GameSceneController : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene("Result");
         }
+    }
+    IEnumerator test()
+    {
+        int bulletNum = GameManager.GetInstance().GetBulletNum();
+        yield return new WaitForSeconds(4.0f);
+        if (GameManager.GetInstance().GetBulletNum() == bulletNum)
+        {
+            soundChild.oneshot = true;
+            isBulletEndAction = true;
+
+            bulletNoAnimation.Play();
+        }
+        isBulletColutine = false;
+
+        
     }
 
     // ゲームエンド
