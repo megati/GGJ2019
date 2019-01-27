@@ -7,6 +7,8 @@ public class RuleToGame : MonoBehaviour
 {
     public bool ispush;
 
+    [SerializeField]
+    private SoundChild soundchild;
     void Start()
     {
         
@@ -20,6 +22,7 @@ public class RuleToGame : MonoBehaviour
 
     public void GoToGame()
     {
+        soundchild.oneshot = true;
         if (ispush == false)
         {
             ispush = true;
