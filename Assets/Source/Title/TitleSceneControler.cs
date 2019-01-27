@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TitleSceneControler : MonoBehaviour
 {
+
+    [SerializeField] private SoundChild soundChild;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +22,14 @@ public class TitleSceneControler : MonoBehaviour
 
     public void OnGameStartButton()
     {
+        soundChild.oneshot = true;
         //GameManager.GetInstance().
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 
     public void OnGameEndButton()
     {
+        soundChild.oneshot = true;
         Application.Quit();
     }
 
