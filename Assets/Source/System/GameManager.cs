@@ -46,8 +46,8 @@ public class GameManager
         if (gameTime <= 0f)
         {
             //カーソルを表示する
-            Cursor.visible = true;
-            SceneChange("Result");
+            gameTime = 0.0f;
+            isPerformance = true;
         }
         else gameTime -= 1.0f * Time.deltaTime;
     }
@@ -92,21 +92,6 @@ public class GameManager
     }
 
     /// <summary>
-    /// タイム制限でリザルト画面へ
-    /// </summary>
-    public void GameEnd()
-    {
-        if (gameTime <= 0f)
-        {
-            SceneChange("Result");
-        }
-        if (bulletNum == 0)
-        {
-            SceneChange("Result");
-        }
-    }
-
-    /// <summary>
     /// リザルト画面からタイトルへ
     /// </summary>
     public void BackToTitle()
@@ -139,8 +124,7 @@ public class GameManager
     // シーン入れ替え
     void SceneChange(string sceneName)
     {
-        Cursor.visible = true;
-        SceneManager.LoadScene(sceneName);
+        
     }
 
     /// 壊れたビルの数を返す

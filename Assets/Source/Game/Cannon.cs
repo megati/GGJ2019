@@ -67,6 +67,9 @@ public class Cannon : MonoBehaviour
     /// </summary>
     void Update()
     {
+        //演出中なら
+        if (GameManager.GetInstance().IsPerformance()) return;
+
         //撃った後はクールタイム
         if (reloadTime > 0.0f)
         {

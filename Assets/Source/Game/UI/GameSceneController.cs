@@ -1,9 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSceneController : MonoBehaviour
 {
+    //終了アクション
+    bool isEndAction = false;
+
+    [SerializeField]
+    private Animation timeOverAnimation;
+
+    [SerializeField]
+    private Animation bulletNoAnimation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +24,40 @@ public class GameSceneController : MonoBehaviour
     void Update()
     {
         // 条件満たしたら、エンドに行く
-        GameManager.GetInstance().GameEnd();
+        if (GameManager.GetInstance().GetGameTime() <= 0.0f && GameManager.GetInstance().IsPerformance())
+        {
+            if (!isEndAction)
+            {
+                isEndAction = true;
+                timeOverAnimation.Play();
+            }
+            else
+            {
+                //アニメーションが終わっている
+                if (!timeOverAnimation.IsPlaying("DownGameOverText"))
+                {
+                    Cursor.visible = true;
+                    SceneManager.LoadScene("Result");
+                }
+            }
+        }
+        else if (GameManager.GetInstance().GetBulletNum() <= 0)
+        {
+            if (!isEndAction)
+            {
+                isEndAction = true;
+                bulletNoAnimation.Play();
+            }
+            else
+            {
+                //アニメーションが終わっている
+                if (!bulletNoAnimation.IsPlaying("UpGameOverText"))
+                {
+                    Cursor.visible = true;
+                    SceneManager.LoadScene("Result");
+                }
+            }
+        }
     }
 
     // ゲームエンド
