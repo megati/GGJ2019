@@ -50,15 +50,15 @@ MonoBehaviour:
     life: 3
   - number: 2
     createNumber: 1
-    recoveryBulletNum: 5
-    life: 4
-  - number: 4
-    createNumber: 0
     recoveryBulletNum: 7
     life: 6
+  - number: 4
+    createNumber: 0
+    recoveryBulletNum: 8
+    life: 7
   - number: 5
     createNumber: 1
-    recoveryBulletNum: 4
+    recoveryBulletNum: 5
     life: 4
   - number: 9
     createNumber: 2
@@ -67,7 +67,7 @@ MonoBehaviour:
   - number: 10
     createNumber: 1
     recoveryBulletNum: 4
-    life: 3
+    life: 4
   - number: 12
     createNumber: 2
     recoveryBulletNum: 3
