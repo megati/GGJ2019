@@ -26,6 +26,16 @@ public class GameManager
     private int breakBuildingCount = 0;
 
     /// <summary>
+    /// ゲーム初期化
+    /// </summary>
+    public void GameInit()
+    {
+        gameTime = 60.0f;
+        bulletNum = 30;
+        breakBuildingCount = 0;
+    }
+
+    /// <summary>
     /// ゲームの時間をカウントする
     /// </summary>
     public void GameTimeCount()
