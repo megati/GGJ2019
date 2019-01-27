@@ -20,7 +20,7 @@ public class TitleSceneControler : MonoBehaviour
     public void OnGameStartButton()
     {
         //GameManager.GetInstance().
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 
     public void OnGameEndButton()
