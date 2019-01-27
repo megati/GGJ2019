@@ -33,6 +33,7 @@ public class BuildingController : MonoBehaviour
             if (point==null) continue;
             var obj = Instantiate(buildingObjectList[(int)buildingData.createNumber], point) as GameObject;
             obj.transform.localScale = buildingObjectList[(int)buildingData.createNumber].transform.localScale;
+            obj.transform.position = point.transform.position;
             var building = obj.GetComponent<BuildingBase>();
             building.Init(buildingData.life, buildingData.recoveryBulletNum);
             createBuildingList.Add(building);
