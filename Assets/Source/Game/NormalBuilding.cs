@@ -19,13 +19,6 @@ public class NormalBuilding : BuildingBase
     // Update is called once per frame
     void Update()
     {
-        if (hitToCat.IsHit == true)
-        {
-            soundChild.oneshot = true;
-            Debug.Log("aaa");
-            hitToCat.PopupHitObject();
-            base.life -= 1;
-        }
         if (base.IsBroken() == true)
         {
             state = State.breaking;
@@ -33,5 +26,13 @@ public class NormalBuilding : BuildingBase
             DeleteHingeJointsChildren();
             //buildBloken = null;
         }
+        if (hitToCat.IsHit == true)
+        {
+            soundChild.oneshot = true;
+            Debug.Log("aaa");
+            hitToCat.PopupHitObject();
+            base.life -= 1;
+        }
+        
     }
 }

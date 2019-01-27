@@ -118,7 +118,7 @@ public class CatBullet : BulletBase
         if (state == State.JointHit)
         {
             SetJoint(hitObject);
-            Destroy(this);
+            //Destroy(this);
         }
         else if(state == State.GroundHit)
         {
@@ -154,7 +154,7 @@ public class CatBullet : BulletBase
         this.GetComponent<Rigidbody>().useGravity = false;
         rigidBody.velocity = Vector3.zero;
         animator.SetTrigger("WarkingTrigger");
-
+        transform.position = new Vector3( transform.position.x, 1.25f, transform.position.z );
     }
 
     void GroundHit()
