@@ -8,7 +8,8 @@ public class LogoManager : MonoBehaviour
 
     void Start()
     {
-        Invoke("LogoScene", 3.0f);
+        Cursor.visible = false;
+        Invoke("LogoScene", 2.0f);
     }
 
 

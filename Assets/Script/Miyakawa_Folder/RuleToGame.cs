@@ -17,7 +17,7 @@ public class RuleToGame : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetMouseButtonDown(0)) {
             GoToGame();
         }
     }

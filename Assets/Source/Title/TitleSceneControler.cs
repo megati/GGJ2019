@@ -9,22 +9,17 @@ public class TitleSceneControler : MonoBehaviour
     [SerializeField] private SoundChild soundChild;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start(){
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update(){}
 
     public void OnGameStartButton()
     {
         soundChild.oneshot = true;
-        //GameManager.GetInstance().
-        UnityEngine.SceneManagement.SceneManager.LoadScene("RuleScene");
+        SceneManager.LoadScene("RuleScene");
     }
 
     public void OnGameEndButton()
