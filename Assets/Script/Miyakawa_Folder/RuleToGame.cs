@@ -7,6 +7,9 @@ public class RuleToGame : MonoBehaviour
 {
     public bool ispush;
 
+    [SerializeField]
+    private NekoFade nekoFade;
+
     //[SerializeField]
     //private SoundChild soundchild;
     void Start()
@@ -20,6 +23,10 @@ public class RuleToGame : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             GoToGame();
         }
+        if (ispush && nekoFade.GetFadeMode() == NekoFade.FADE_MODE.FADE_OUT_END)
+        {
+            SceneManager.LoadScene("GameScene");
+        }
     }
 
     public void GoToGame()
@@ -28,7 +35,7 @@ public class RuleToGame : MonoBehaviour
         if (ispush == false)
         {
             ispush = true;
-            SceneManager.LoadScene("GameScene");
+            nekoFade.StartFade(NekoFade.FADE_MODE.FADE_OUT);
             return;
         }
     }

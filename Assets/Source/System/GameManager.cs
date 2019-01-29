@@ -17,7 +17,7 @@ public class GameManager
     private float gameTime = 60.0f;
 
     //演出中か
-    private bool isPerformance = false;
+    private bool isPerformance = true;
 
     //弾の残段数
     private int bulletNum = 1;
@@ -33,7 +33,7 @@ public class GameManager
         gameTime = 60.0f;
         bulletNum = 5;
         breakBuildingCount = 0;
-        isPerformance = false;
+        isPerformance = true;
     }
 
     /// <summary>

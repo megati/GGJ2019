@@ -21,9 +21,17 @@ public class GameSceneController : MonoBehaviour
     [SerializeField]
     private SoundChild soundChild;
 
+    [SerializeField]
+    private NekoFade nekoFade;
+
+    bool isGameStart = false;
+    bool isResultMove = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        nekoFade.StartFade(NekoFade.FADE_MODE.FADE_IN);
+
         isBulletEndAction = false;
         isTimeEndAction = false;
         isBulletColutine = false;
@@ -32,6 +40,20 @@ public class GameSceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //タイトル演出
+        if (nekoFade.GetFadeMode() == NekoFade.FADE_MODE.FADE_IN_END && !isGameStart)
+        {
+            GameManager.GetInstance().Performance(false);
+            isGameStart = true;
+        }
+
+        //リザルトいく演出
+        if (isResultMove)
+        {
+            if(nekoFade.GetFadeMode()==NekoFade.FADE_MODE.FADE_OUT_END) SceneManager.LoadScene("Result");
+            return;
+        }
+
         // 条件満たしたら、エンドに行く
         if (GameManager.GetInstance().GetGameTime() <= 0.0f && GameManager.GetInstance().IsPerformance() && !isBulletEndAction)
         {
@@ -40,6 +62,7 @@ public class GameSceneController : MonoBehaviour
                 soundChild.oneshot = true;
                 isTimeEndAction = true;
                 timeOverAnimation.Play();
+                GameManager.GetInstance().Performance(true);
             }
         }
         if (GameManager.GetInstance().GetBulletNum() <= 0 && !isTimeEndAction)
@@ -59,7 +82,9 @@ public class GameSceneController : MonoBehaviour
             if (!bulletNoAnimation.IsPlaying("UpGameOverText"))
             {
                 Cursor.visible = true;
-                SceneManager.LoadScene("Result");
+                isResultMove = true;
+                GameManager.GetInstance().Performance(true);
+                nekoFade.StartFade(NekoFade.FADE_MODE.FADE_OUT);
             }
         }
 
@@ -69,14 +94,10 @@ public class GameSceneController : MonoBehaviour
             if (!timeOverAnimation.IsPlaying("DownGameOverText"))
             {
                 Cursor.visible = true;
-                SceneManager.LoadScene("Result");
+                isResultMove = true;
+                GameManager.GetInstance().Performance(true);
+                nekoFade.StartFade(NekoFade.FADE_MODE.FADE_OUT);
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Cursor.visible = true;
-            SceneManager.LoadScene("Result");
         }
     }
     IEnumerator test()
@@ -89,10 +110,19 @@ public class GameSceneController : MonoBehaviour
             isBulletEndAction = true;
 
             bulletNoAnimation.Play();
+            GameManager.GetInstance().Performance(true);
         }
         isBulletColutine = false;
 
         
+    }
+
+    /// <summary>
+    /// ゲームスタート演出
+    /// </summary>
+    void GameStartEffect()
+    {
+
     }
 
     // ゲームエンド

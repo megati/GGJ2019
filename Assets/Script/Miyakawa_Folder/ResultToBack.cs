@@ -7,6 +7,15 @@ public class ResultToBack : MonoBehaviour
 {
     public bool ispush;
     [SerializeField] private SoundChild soundchild;
+    [SerializeField] private NekoFade nekoFade;
+
+    enum ResultMove
+    {
+        RETRY,
+        TITLE
+    }
+
+    ResultMove resultMove;
 
     void Start()
     {
@@ -16,27 +25,33 @@ public class ResultToBack : MonoBehaviour
 
     void Update()
     {
-
+        if (ispush && nekoFade.GetFadeMode() == NekoFade.FADE_MODE.FADE_OUT_END)
+        {
+            if(resultMove == ResultMove.TITLE) SceneManager.LoadScene("StaffRollScene");
+            if(resultMove == ResultMove.RETRY) SceneManager.LoadScene("GameScene");
+        }
     }
 
     public void BackToTitle()
     {
-        soundchild.oneshot = true;
         if (ispush == false)
         {
+            soundchild.oneshot = true;
             ispush = true;
-            SceneManager.LoadScene("StaffRollScene");
+            resultMove = ResultMove.TITLE;
+            nekoFade.StartFade(NekoFade.FADE_MODE.FADE_OUT);
             return;
         }
     }
 
     public void OnGameBckButton()
     {
-        soundchild.oneshot = true;
         if (ispush == false)
         {
+            soundchild.oneshot = true;
             ispush = true;
-            SceneManager.LoadScene("GameScene");
+            resultMove = ResultMove.RETRY;
+            nekoFade.StartFade(NekoFade.FADE_MODE.FADE_OUT);
             return;
         }
     }

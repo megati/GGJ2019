@@ -7,25 +7,48 @@ public class TitleSceneControler : MonoBehaviour
 {
 
     [SerializeField] private SoundChild soundChild;
+    [SerializeField] private NekoFade nekoFade;
+
+    enum TitleMove
+    {
+        RULE,
+        END
+    }
+
+    TitleMove titleMove;
 
     // Start is called before the first frame update
     void Start(){
+        nekoFade.StartFade(NekoFade.FADE_MODE.FADE_IN);
         Cursor.visible = true;
     }
 
     // Update is called once per frame
-    void Update(){}
+    void Update()
+    {
+        if (nekoFade.GetFadeMode() == NekoFade.FADE_MODE.FADE_OUT_END)
+        {
+            if (titleMove == TitleMove.RULE) SceneManager.LoadScene("RuleScene");
+            if (titleMove == TitleMove.END) Application.Quit();
+        }
+    }
 
     public void OnGameStartButton()
     {
+        if (nekoFade.GetFadeMode() == NekoFade.FADE_MODE.FADE_OUT) return;
+
         soundChild.oneshot = true;
-        SceneManager.LoadScene("RuleScene");
+        titleMove = TitleMove.RULE;
+        nekoFade.StartFade(NekoFade.FADE_MODE.FADE_OUT);
     }
 
     public void OnGameEndButton()
     {
+        if (nekoFade.GetFadeMode() == NekoFade.FADE_MODE.FADE_OUT) return;
+
         soundChild.oneshot = true;
-        Application.Quit();
+        titleMove = TitleMove.END;
+        nekoFade.StartFade(NekoFade.FADE_MODE.FADE_OUT);
     }
 
 }

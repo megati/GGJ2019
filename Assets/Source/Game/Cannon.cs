@@ -86,7 +86,7 @@ public class Cannon : MonoBehaviour
             Move();
 
             //クリックで弾を飛ばす
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && GameManager.GetInstance().GetBulletNum()>0)
             {
                 reloadTime = coolTime;
                 GameManager.GetInstance().CutBackBulletNum();
