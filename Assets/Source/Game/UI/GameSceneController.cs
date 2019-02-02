@@ -24,6 +24,9 @@ public class GameSceneController : MonoBehaviour
     [SerializeField]
     private NekoFade nekoFade;
 
+    [SerializeField]
+    private SaveData saveData;
+
     bool isGameStart = false;
     bool isResultMove = false;
 
@@ -40,6 +43,8 @@ public class GameSceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        saveData.SetScore();
+
         //タイトル演出
         if (nekoFade.GetFadeMode() == NekoFade.FADE_MODE.FADE_IN_END && !isGameStart)
         {

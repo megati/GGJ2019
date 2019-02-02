@@ -59,6 +59,14 @@ public class GameManager
     public int GetGameTime() { return (int)gameTime; }
 
     /// <summary>
+    /// 時間が増える
+    /// </summary>
+    public void TimeUp()
+    {
+        gameTime += 5;
+    }
+
+    /// <summary>
     /// 現在の弾の数を返す
     /// </summary>
     public int GetBulletNum() { return bulletNum; }

@@ -52,7 +52,6 @@ public class BuildingBase : MonoBehaviour
         {
             return false;
         }
-        Debug.Log("life:" + life);
         return life <= 0;
     }
 
@@ -64,11 +63,9 @@ public class BuildingBase : MonoBehaviour
         {
             if (hingeJoint.connectedBody != null)
             {
-                //Debug.Log("lllll" + hingeJoint.connectedBody.gameObject.name);
                 Instantiate(particleObject, hingeJoint.connectedBody.position, Quaternion.identity);
                 hingeJoint.connectedBody.gameObject.SetActive(false);
                 hingeJoint.connectedBody = null;
-                //
                 
             }
         }

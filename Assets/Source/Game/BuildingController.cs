@@ -65,17 +65,19 @@ public class BuildingController : MonoBehaviour
         {
             if (!isEffect)
             {
+                //時間を加算
+                GameManager.GetInstance().TimeUp();
+
                 GameManager.GetInstance().Performance(true);
                 cameraAnimation.Play();
                 RandomStageCreate();
-                //StartCoroutine(YurasuAnimation());
+                StartCoroutine(YurasuAnimation());
             }
             isEffect = true;
         }
 
         if (isEffect)
         {
-            Debug.Log("check");
             if (!cameraAnimation.IsPlaying("Yurasu"))
             {
                 Debug.Log("Hit");
@@ -135,23 +137,27 @@ public class BuildingController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator YurasuAnimation()
     {
-        Vector3 firstPosition = createBuildingList[0].transform.position;
+        float firstPositionY = createBuildingList[0].transform.position.y;
 
         while (createBuildingList[0].transform.position.y < pointY)
         {
             foreach (var createBuilding in createBuildingList)
             {
-                createBuilding.transform.position = firstPosition + new Vector3(Mathf.Sin(Mathf.Rad2Deg * animationTime) * 1, buildMoveY);
+                createBuilding.transform.position = new Vector3(createBuilding.transform.position.x, firstPositionY, createBuilding.transform.position.z) + new Vector3(0, buildMoveY);
 
                 animationTime += Time.deltaTime;
-                buildMoveY -= buildSpeedY * Time.deltaTime;
+                buildMoveY += buildSpeedY * Time.deltaTime;
                 if (animationTime > 1) animationTime = 0;
             }
             
             yield return null;
         }
 
-        isEffect = false;
+        //全部立つ
+        foreach (var createBuilding in createBuildingList)
+        {
+            createBuilding.gameObject.transform.position = new Vector3(createBuilding.gameObject.transform.position.x, pointY, createBuilding.gameObject.transform.position.z);
+        }
         yield return null;
     }
 }
